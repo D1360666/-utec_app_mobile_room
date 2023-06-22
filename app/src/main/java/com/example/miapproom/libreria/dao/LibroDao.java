@@ -1,5 +1,6 @@
 package com.example.miapproom.libreria.dao;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -13,7 +14,7 @@ import java.util.List;
 @Dao
 public interface LibroDao {
     @Query("SELECT * FROM Libro")
-    List<Libro> findAll();
+    LiveData<List<Libro>> findAll();
 
     @Insert
     void insert(Libro libro);
@@ -29,5 +30,7 @@ public interface LibroDao {
 
     @Query("SELECT * FROM LIBRO WHERE nombre LIKE :nombre")
     Libro findByNombre(String nombre);
+
+
 
 }
